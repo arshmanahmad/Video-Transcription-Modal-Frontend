@@ -25,7 +25,8 @@ interface TranscriptionData {
   };
 }
 
-const API_BASE_URL = "http://localhost:5000/api/video-to-text";
+const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/api/video-to-text`;
+console.log(API_BASE_URL);
 
 function VideoTranscription() {
   const [inputMethod, setInputMethod] = useState<"file" | "url">("file");
@@ -173,4 +174,3 @@ function VideoTranscription() {
 }
 
 export default VideoTranscription;
-
