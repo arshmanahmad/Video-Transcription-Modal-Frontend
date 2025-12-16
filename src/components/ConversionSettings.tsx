@@ -88,17 +88,17 @@ function ConversionSettings({
     <div className="space-y-6">
       {/* Conversion Type */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-semibold text-gray-800 mb-3">
           Conversion Type
         </label>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {CONVERSION_TYPES.map((type) => (
             <label
               key={type.value}
-              className={`relative flex items-start p-4 border-2 rounded-lg cursor-pointer transition-all ${
+              className={`relative flex items-start p-4 border-2 rounded-xl cursor-pointer transition-all ${
                 conversionType === type.value
-                  ? "border-indigo-500 bg-indigo-50"
-                  : "border-gray-200 hover:border-gray-300"
+                  ? "border-indigo-500 bg-gradient-to-br from-indigo-100 to-purple-100 shadow-lg"
+                  : "border-gray-200 bg-white hover:border-indigo-400 hover:bg-gradient-to-br hover:from-indigo-50 hover:to-purple-50"
               }`}
             >
               <input
@@ -110,8 +110,8 @@ function ConversionSettings({
                 className="mt-1 h-4 w-4 text-indigo-600 focus:ring-indigo-500"
               />
               <div className="ml-3 flex-1">
-                <div className="font-medium text-gray-900">{type.label}</div>
-                <div className="text-sm text-gray-500">{type.description}</div>
+                <div className="font-semibold text-gray-900">{type.label}</div>
+                <div className="text-sm text-gray-600">{type.description}</div>
               </div>
             </label>
           ))}
@@ -122,13 +122,13 @@ function ConversionSettings({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Language */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-800 mb-2">
             Language
           </label>
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
+            className="w-full px-4 py-3 bg-white border-2 border-indigo-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition shadow-sm hover:border-indigo-300"
           >
             {LANGUAGES.map((lang) => (
               <option key={lang.value} value={lang.value}>
@@ -136,20 +136,20 @@ function ConversionSettings({
               </option>
             ))}
           </select>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs text-gray-600">
             Leave as "Auto-detect" for automatic language detection
           </p>
         </div>
 
         {/* Model */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-800 mb-2">
             Whisper Model
           </label>
           <select
             value={model}
             onChange={(e) => setModel(e.target.value)}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
+            className="w-full px-4 py-3 bg-white border-2 border-indigo-200 rounded-xl text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition shadow-sm hover:border-indigo-300"
           >
             {MODELS.map((m) => (
               <option key={m.value} value={m.value}>
@@ -157,7 +157,7 @@ function ConversionSettings({
               </option>
             ))}
           </select>
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs text-gray-600">
             Larger models = better accuracy but slower processing
           </p>
         </div>
@@ -167,4 +167,3 @@ function ConversionSettings({
 }
 
 export default ConversionSettings;
-
